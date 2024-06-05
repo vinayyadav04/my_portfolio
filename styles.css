@@ -105,6 +105,15 @@ section {
 .project-item:hover {
     transform: scale(1.05);
 }
+.project-item .btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background-color: #ff6347;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
 #contact {
     background-color: #222;
