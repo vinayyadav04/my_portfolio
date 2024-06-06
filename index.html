@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app-compat.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-analytics-compat.js"></script>
     <title>Vinay | Dev</title>
 </head>
 <body>
@@ -94,6 +98,46 @@
     <footer>
         <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA9x9m8OcjVcL8F70-zdiE0taUSvWi9Rwuc",
+            authDomain: "portfolio-ab5f5.firebaseapp.com",
+            projectId: "portfolio-ab5f5",
+            storageBucket: "portfolio-ab5f5.appspot.com",
+            messagingSenderId: "734029008448",
+            appId: "1:734029008448:web:f4679d21fab79bf5a98da5",
+            measurementId: "G-SY44LJF9Y0"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const analytics = firebase.analytics();
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = e.target.name.value;
+            const email = e.target.email.value;
+            const message = e.target.message.value;
+
+            db.collection('contacts').add({
+                name: name,
+                email: email,
+                message: message,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                alert('Message sent successfully!');
+                e.target.reset();
+            }).catch((error) => {
+                console.error('Error sending message:', error);
+                alert('Failed to send message.');
+            });
+        });
+    </script>
 
 </body>
 </html>
