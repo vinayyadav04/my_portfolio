@@ -11,6 +11,16 @@ header {
     color: white;
     padding: 1rem 0;
     text-align: center;
+    position: sticky;
+    z-index: 1;
+    top: 0cm;
+}
+
+#fixed{
+    position: fixed;
+    color: wheat;
+    height: 50px;
+    width: 50px;
 }
 
 nav ul {
@@ -33,6 +43,7 @@ nav ul li a {
     color: white;
     text-align: center;
     padding: 5rem 0;
+    
 }
 
 #hero .btn {
@@ -46,6 +57,14 @@ nav ul li a {
 section {
     padding: 2rem 1rem;
     text-align: center;
+}
+section img{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 190px;
+    top: 120px;
+    border-radius: 100px;
 }
 
 #about {
@@ -154,4 +173,6 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem 0;
+    
+    
 }
